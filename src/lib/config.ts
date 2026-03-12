@@ -180,18 +180,55 @@ const DEMO_MENU: MenuItem[] = [
     category: '원두',
     emoji: '🫘',
     imageUrl: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=120&h=120&q=80&auto=format&fit=crop',
-  },
+  }
 ];
 
 const DEMO_HOURS: BusinessHour[] = [
-  { day: '월요일', dayEn: 'Monday', hours: '정기휴무', isHoliday: true },
-  { day: '화요일', dayEn: 'Tuesday', hours: '09:00 - 22:00', hoursEn: '09:00 - 22:00' },
-  { day: '수요일', dayEn: 'Wednesday', hours: '09:00 - 22:00', hoursEn: '09:00 - 22:00' },
-  { day: '목요일', dayEn: 'Thursday', hours: '09:00 - 22:00', hoursEn: '09:00 - 22:00' },
-  { day: '금요일', dayEn: 'Friday', hours: '09:00 - 22:00', hoursEn: '09:00 - 22:00' },
-  { day: '토요일', dayEn: 'Saturday', hours: '09:00 - 22:00', hoursEn: '09:00 - 22:00' },
-  { day: '일요일', dayEn: 'Sunday', hours: '09:00 - 22:00', hoursEn: '09:00 - 22:00' },
+  {
+    day: '월요일',
+    dayEn: 'Monday',
+    hours: '정기휴무',
+    isHoliday: true,
+  },
+  {
+    day: '화요일',
+    dayEn: 'Tuesday',
+    hours: '09:00 - 22:00',
+    hoursEn: '09:00 - 22:00',
+  },
+  {
+    day: '수요일',
+    dayEn: 'Wednesday',
+    hours: '09:00 - 22:00',
+    hoursEn: '09:00 - 22:00',
+  },
+  {
+    day: '목요일',
+    dayEn: 'Thursday',
+    hours: '09:00 - 22:00',
+    hoursEn: '09:00 - 22:00',
+  },
+  {
+    day: '금요일',
+    dayEn: 'Friday',
+    hours: '09:00 - 22:00',
+    hoursEn: '09:00 - 22:00',
+  },
+  {
+    day: '토요일',
+    dayEn: 'Saturday',
+    hours: '09:00 - 22:00',
+    hoursEn: '09:00 - 22:00',
+  },
+  {
+    day: '일요일',
+    dayEn: 'Sunday',
+    hours: '09:00 - 22:00',
+    hoursEn: '09:00 - 22:00',
+  }
 ];
+
+const _basePath = process.env.NEXT_PUBLIC_REPO_NAME ? `/${process.env.NEXT_PUBLIC_REPO_NAME}` : '';
 
 function parseJSON<T>(raw: string | undefined, fallback: T): T {
   if (!raw) return fallback;
@@ -203,31 +240,28 @@ function parseJSON<T>(raw: string | undefined, fallback: T): T {
 }
 
 export const siteConfig = {
-  name: process.env.NEXT_PUBLIC_SITE_NAME || '온기 로스터리',
+  name: process.env.NEXT_PUBLIC_SITE_NAME || '온기 로스터리2',
   nameEn: process.env.NEXT_PUBLIC_SITE_NAME_EN || 'Ongi Roastery',
-  description:
-    process.env.NEXT_PUBLIC_DESCRIPTION ||
-    '매일 아침, 직접 로스팅한 한 잔의 커피',
-  descriptionEn:
-    process.env.NEXT_PUBLIC_DESCRIPTION_EN ||
-    'A cup of freshly roasted coffee every morning',
+  description: process.env.NEXT_PUBLIC_DESCRIPTION || '매일 아침, 직접 로스팅한 한 잔의 커피',
+  descriptionEn: process.env.NEXT_PUBLIC_DESCRIPTION_EN || 'A cup of freshly roasted coffee every morning',
   phone: process.env.NEXT_PUBLIC_PHONE || '02-338-1204',
+  primaryColor: process.env.NEXT_PUBLIC_PRIMARY_COLOR || '#8b6914',
   address: process.env.NEXT_PUBLIC_ADDRESS || '서울 마포구 연남로 23길 8, 1층',
   addressEn: process.env.NEXT_PUBLIC_ADDRESS_EN || '1F, 8, Yeonnam-ro 23-gil, Mapo-gu, Seoul',
   kakaoMapId: process.env.NEXT_PUBLIC_KAKAO_MAP_ID || '',
   menuItems: parseJSON<MenuItem[]>(process.env.NEXT_PUBLIC_MENU_ITEMS, DEMO_MENU),
   businessHours: parseJSON<BusinessHour[]>(process.env.NEXT_PUBLIC_BUSINESS_HOURS, DEMO_HOURS),
   galleryImages: parseJSON<string[]>(process.env.NEXT_PUBLIC_GALLERY_IMAGES, [
-    'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&h=600&q=80&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1561882468-9110e03e0f78?w=600&h=600&q=80&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=600&h=600&q=80&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1567171466295-4afa63d45416?w=600&h=600&q=80&auto=format&fit=crop',
-  ]),
+  'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&h=600&q=80&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1561882468-9110e03e0f78?w=600&h=600&q=80&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=600&h=600&q=80&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1567171466295-4afa63d45416?w=600&h=600&q=80&auto=format&fit=crop'
+]),
   instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL || '',
   naverBlogUrl: process.env.NEXT_PUBLIC_NAVER_BLOG_URL || '',
   kakaoChannelUrl: process.env.NEXT_PUBLIC_KAKAO_CHANNEL_URL || '',
-  primaryColor: process.env.NEXT_PUBLIC_PRIMARY_COLOR || '#8b6914',
-  fontFamily: process.env.NEXT_PUBLIC_FONT_FAMILY || 'Nanum Myeongjo',
+  fontFamily: 'Nanum Myeongjo',
+  designPreset: 'default',
   gaId: process.env.NEXT_PUBLIC_GA_ID || null,
 };
 
